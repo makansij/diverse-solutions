@@ -116,8 +116,8 @@ def plot_sig_ac(signals, corrs):
         ax.set_title("Autocorrelated: " + title)
         ax.set_xlabel("Sample")
         ax.set_ylabel("Autocorrelation")         
-        ax.plot(range(len(corrs.loc[corrs['Signal'] == title].ac.item())), corrs.loc[corrs['Signal'] == title].ac.item(), 'b.') 
-        ax.plot([0, len(corrs.loc[corrs['Signal'] == title].ac.item())], [np.sqrt(np.mean(corrs.loc[corrs['Signal'] == title].ac.item()**2)), np.sqrt(np.mean(corrs.loc[corrs['Signal'] == title].ac.item()**2))], 'black')        
+        ax.plot(range(len(corrs.loc[corrs['Signal'] == title].ac.iat[0])), corrs.loc[corrs['Signal'] == title].ac.iat[0], 'b.') 
+        ax.plot([0, len(corrs.loc[corrs['Signal'] == title].ac.iat[0])], [np.sqrt(np.mean(corrs.loc[corrs['Signal'] == title].ac.iat[0]**2)), np.sqrt(np.mean(corrs.loc[corrs['Signal'] == title].ac.iat[0]**2))], 'black')        
         axis += 1
     plt.tight_layout()
 
