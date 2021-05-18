@@ -104,7 +104,9 @@ possibly improve solutions returned from the D-Wave quantum computer.
 
 ## A Small Random (RAN1) Problem
 For simplicity, this section solves a small RAN1 problem: a graph with all node
-biases set to zero and all edge weights assigned $\pm 1$ with uniform
+biases set to zero and all edge weights assigned
+<img style="filter:invert(1)" src="https://latex.codecogs.com/gif.latex?\pm&space;1">
+with uniform
 distribution. Such a problem might represent an expansion of the well-known
 [maximum cut](https://en.wikipedia.org/wiki/Maximum_cut) NP-hard graph problem
 or the problem of estimating structural imbalance for real-world social networks
