@@ -119,15 +119,23 @@ The next cell uses a NetworkX graph generator that returns a random graph with
 [dimod](https://docs.ocean.dwavesys.com/en/stable/docs_dimod/sdk_index.html) uses
 it to create a RAN1
 problem. Because node biases are zero, in its Ising formulation submitted to the
-quantum computer, $\sum_{i=1}^N h_i s_i + \sum_{i<j}^N J_{i,j} s_i s_j$,
-coefficients $h_i$ are set to zero. To solve the RAN1 problem the D-Wave system
+quantum computer,
+
+<img style="filter:invert(1)" src="https://latex.codecogs.com/gif.latex?\sum_{i=1}^N&space;h_i&space;s_i&space;&plus;&space;\sum_{i<j}^N&space;J_{i,j}&space;s_i&space;s_j">,
+
+coefficients <img style="filter:invert(1)" src="https://latex.codecogs.com/gif.latex?h_i">
+are set to zero. To solve the RAN1 problem the D-Wave system
 minimizes the remaining right-hand term,
 
-  $\sum_{i<j}^N J_{i,j} s_i s_j$,
+<img style="filter:invert(1)" src="https://latex.codecogs.com/gif.latex?\sum_{i<j}^N&space;J_{i,j}&space;s_i&space;s_j">,
 
-where $N$ is the number of nodes, quadratic coefficients, $J_{i,j}$, representing
-the graph edge values, are set to $\pm 1$ and the solution's spin variables $s_i$
-can have values $-1$ or $+1$.
+where N is the number of nodes, quadratic coefficients,
+<img style="filter:invert(1)" src="https://latex.codecogs.com/gif.latex?J_{i,j}">,
+representing the graph edge values, are set to
+<img style="filter:invert(1)" src="https://latex.codecogs.com/gif.latex?\pm&space;1">
+and the solution's spin variables
+<img style="filter:invert(1)" src="https://latex.codecogs.com/gif.latex?s_i">
+can have values -1 or +1.
 
 ```
 import dimod
