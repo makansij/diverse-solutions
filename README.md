@@ -359,9 +359,11 @@ this section and make use of the demonstrated methods. For the purpose of this
 section it's enough to know that it is a formula that can find patterns in
 signals; for example, a word in a stream of audio. This means that it can provide
 information on the randomness of a time series of samples. In general,
-autocorrelation on a signal, $y(t)$, produces a series of $k$ values, each of
-which represents the sum of the signal multiplied by a shifted copy of itself,
-$y(t+k)$.
+autocorrelation on a signal,
+<img style="filter:invert(1)" src="https://latex.codecogs.com/gif.latex?y(t)">,
+produces a series of k values, each of which represents the sum of the signal
+multiplied by a shifted copy of itself,
+<img style="filter:invert(1)" src="https://latex.codecogs.com/gif.latex?y(t&plus;k)">.
 
 This section provides a simple example of autocorrelation to help you form an  
 intuitive grasp of its results that is sufficient for basic analysis of samples.
@@ -412,13 +414,15 @@ The three signals are:
 * Sine function. For this signal&mdash;the quintessential repetitive
   pattern&mdash;you can accurately predict future values after minimal amplitude
   measurements. Autocorrelation is expected to return a high value.
-* Random signal of uniformly selected $\pm 1$ values. This signal should ideally
+* Random signal of uniformly selected
+  <img style="filter:invert(1)" src="https://latex.codecogs.com/gif.latex?\pm&space;1">
+  values. This signal should ideally
   return zero autocorrelation; regardless of how long you measure it, you cannot
   accurately predict the next value. In reality, it returns low autocorrelation
   because given a finite signal of sufficient length, random data can be
   interpreted as being part of some repetitive pattern.
-* Weighted pseudo-random signal, where bit $i$ depends to a high degree on
-  bit $i-1$ and to a lower degree on bit $i-2$. This signal falls in between the
+* Weighted pseudo-random signal, where bit i depends to a high degree on
+  bit i-1 and to a lower degree on bit i-2. This signal falls in between the
   previous two in its degree of randomness. Following subsections will show that
   such a signal can be helpfully used as a mental model for some behavior of
   returned samples.    
@@ -516,15 +520,17 @@ correctly returns the problem's small set of solutions.
 The previous subsection looked at autocorrelation for individual variables
 (qubits); this subsection looks at autocorrelation on the returned solutions.
 
-Again the selected problem is simple: $J_{ij}=1$ for a $K_{4,4}$ bipartite
+Again the selected problem is simple:
+<img src="https://latex.codecogs.com/gif.latex?J_{ij}=1" title="J_{ij}=1">
+for a <img src="https://latex.codecogs.com/gif.latex?K_{4,4}" > bipartite
 graph (a Chimera cell).
 
 <img src='images/k_44.png' width=150x/>
 
 This problem has two known solutions (ground states):
 
-* $[1, 1, 1, 1, -1, -1, -1, -1]$
-* $[-1, -1, -1, -1, 1, 1, 1, 1]$.
+* [1, 1, 1, 1, -1, -1, -1, -1]
+* [-1, -1, -1, -1, 1, 1, 1, 1].
 
 Because the problem can be represented by a single Chimera tile, this example
 uses Ocean software's
@@ -554,12 +560,14 @@ print("Tiling {} copies of the 8-variable problem to both QPUs.".format(tiled_sa
 
 The next cell calculates autocorrelation for each copy of the solution; that is,
 it measures the influence of the state of all qubits in a Chimera tile, which
-represent the solution of sample $i$, on the state of those same qubits in the
-subsequent sample $i+1$.
+represent the solution of sample i, on the state of those same qubits in the
+subsequent sample i+1.
 
 Typically the two grounds states constitute most the answers. Ideally, each
 should constitute 50% of the samples distributed uniformly much like the uniformly
-selected $\pm 1$ values of `x_sin` in the simple example above. In reality
+selected
+<img style="filter:invert(1)" src="https://latex.codecogs.com/gif.latex?\pm&space;1">
+values of `x_sin` in the simple example above. In reality
 qubits have some imbalance. Additionally, the next states tend to repeat the
 previous to some degree, though significantly less so for the lower-noise QPUs.
 
