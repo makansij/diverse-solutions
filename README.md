@@ -33,7 +33,7 @@ conditions). Additionally, a diverse set of solutions may reflect and enable
 analysis of structural characteristics of the problem.
 
 For the basics of solving problems on a quantum computer, see
-[Ocean Software documentation](https://docs.ocean.dwavesys.com/en/latest/). For
+[Ocean Software documentation](https://docs.ocean.dwavesys.com/en/stable/). For
 more detailed information on posing problems and improving solutions, see
 [D-Wave Problem-Solving Handbook](https://docs.dwavesys.com/docs/latest/doc_handbook.html).
 
@@ -74,8 +74,8 @@ by querying solver property `lower_noise`---see the
 for a description of QPU properties.
 
 The cell below uses Ocean software's
-[dwave-system](https://docs.ocean.dwavesys.com/projects/system/)
-*DWaveSampler()* to set up two connections to D-Wave solvers, one of which is to
+[dwave-system](https://docs.ocean.dwavesys.com/en/stable/docs_system/sdk_index.html)
+`DWaveSampler()` to set up two connections to D-Wave solvers, one of which is to
 a lower-noise QPU.
 
 ```
@@ -114,7 +114,8 @@ and its accompanying Jupyter Notebook.
 
 The next cell uses a NetworkX graph generator that returns a random graph with
 16 nodes of degree 3. Ocean software's
-[dimod](https://docs.ocean.dwavesys.com/projects/dimod) uses it to create a RAN1
+[dimod](https://docs.ocean.dwavesys.com/en/stable/docs_dimod/sdk_index.html) uses
+it to create a RAN1
 problem. Because node biases are zero, in its Ising formulation submitted to the
 quantum computer, $\sum_{i=1}^N h_i s_i + \sum_{i<j}^N J_{i,j} s_i s_j$,
 coefficients $h_i$ are set to zero. To solve the RAN1 problem the D-Wave system
@@ -155,8 +156,8 @@ indexed qubits, is known as *minor-embedding*. A problem can be minor embedded
 onto the QPU in a variety of ways and this affects solution quality and
 performance. Ocean software provides embedding tools suited for different types
 of problems; this example uses Ocean software's
-[dwave-system](https://docs.ocean.dwavesys.com/projects/system/en/latest/)
-*EmbeddingComposite()*, a heuristic for automatic embedding.
+[dwave-system](https://docs.ocean.dwavesys.com/en/stable/docs_system/sdk_index.html)
+`EmbeddingComposite()`, a heuristic for automatic embedding.
 
 ```
 from dwave.system import EmbeddingComposite
@@ -210,8 +211,8 @@ Automatically embedding a problem on the QPU is heuristic and usually includes
 representing some variables with multiple qubits (a "chain"). Chain length can
 strongly affect solution quality. You can try rerunning the problem to obtain a
 better embedding or directly use Ocean software's
-[minorminer](https://docs.ocean.dwavesys.com/projects/minorminer) embedding tool
-to improve the embedding.
+[minorminer](https://docs.ocean.dwavesys.com/en/stable/docs_minorminer/source/sdk_index.html)
+embedding tool to improve the embedding.
 
 You might also try more advanced techniques such as changing the anneal schedule
 or using reverse anneal, as demonstrated in other Leap Jupyter Notebooks.
@@ -276,8 +277,8 @@ qubits (due to fabrication yields that are typically slightly lower than 100%).
 Using only these common nodes and edges, it then creates a smaller graph,
 `graph_cn5_shared`, for a selected number of Chimera unit tiles: CN5 represents
 a five by five lattice. Ocean software's
-[dimod](https://docs.ocean.dwavesys.com/projects/dimod) *StructureComposite*
-represents the QPUs as sampler with the shared CN5 graph.
+[dimod](https://docs.ocean.dwavesys.com/en/stable/docs_dimod/sdk_index.html)
+`StructureComposite()` represents the QPUs as sampler with the shared CN5 graph.
 
 
 ```
@@ -358,7 +359,7 @@ It then demonstrates its use on solutions returned from two D-Wave systems. You
 can use the tool to gain insight into the quality of your solutions.
 
 The `autocorrelate` function defined below uses
-[NumPy's correlate function](https://docs.scipy.org/doc/numpy/index.html) to
+[NumPy's correlate function](https://numpy.org/doc/stable/index.html) to
 calculates two values of interest:
 
 * `ac1`: autocorrelation for a time lag of 1. This value represents the
@@ -517,14 +518,14 @@ This problem has two known solutions (ground states):
 
 Because the problem can be represented by a single Chimera tile, this example
 uses Ocean software's
-[dwave-system](https://docs.ocean.dwavesys.com/projects/system)
-*TilingComposite* to process the problem in parallel by tiling multiple copies
+[dwave-system](https://docs.ocean.dwavesys.com/en/stable/docs_system/sdk_index.html)
+`TilingComposite` to process the problem in parallel by tiling multiple copies
 across the QPU.
 
 <img src='images/shared_graph.png' width=500x/>
 
 Use the previously calculated CN16-sized graph of nodes and edges common to both
-QPUs, `graph_cn16_shared`, and previously instantiated *StructureComposite*
+QPUs, `graph_cn16_shared`, and previously instantiated `StructureComposite()`
 samplers, to embed copies of the 8-qubit problem in Chimera tiles with full
 yield in both systems (that is, to solve the problem on tiles that have all
 active qubits in both the QPUs).
