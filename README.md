@@ -1,11 +1,10 @@
-# Diverse Solutions (Using a Lower-Noise QPU)
+With the last previous-generation of D-Wave 2000Q quantum computer taken offline,
+only lower-noise D-Wave 2000Q quantum processing units (QPU) are available now
+in [Leap](https://cloud.dwavesys.com/leap/).
+The *Diverse Solutions* Jupyter Notebook, which compared the two, has
+been archived here as a webpage that presents the output of a typical execution.
 
-With the last previous-generation of D-Wave 2000Q quantum processing unit (QPU)
-taken offline, only lower-noise  D-Wave 2000Q QPUs are available now in the Leap
-quantum application environment.
-The obsolete *Diverse Solutions* Jupyter Notebook, which compared the two, has
-been converted to this webpage that presents the output of a typical execution.
-
+# Archived Jupyter Notebook: Diverse Solutions (Using a Lower-Noise QPU)
 This notebook makes use of D-Wave's 2019 breakthrough in quantum device
 fabrication&mdash;its lower-noise technology for the quantum processing unit
 (QPU)&mdash;to provide some tools and demonstrate techniques that can help your
